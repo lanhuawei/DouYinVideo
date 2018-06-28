@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.baidu.mobstat.StatService;
 import com.hlsp.video.utils.StatusBarCompat;
+import com.hlsp.video.utils.ToastUtil;
 
 import butterknife.ButterKnife;
 import cn.share.jack.cyghttp.callback.BaseImpl;
@@ -37,6 +38,7 @@ public abstract class BaseActivity<PRESENTER extends BasePresenter> extends AppC
         StatusBarCompat.translucentStatusBar(this, true);
         ButterKnife.bind(this);
         initView();
+        ToastUtil.showToast("" + getClass().getSimpleName());
     }
 
     protected abstract int layoutRes();

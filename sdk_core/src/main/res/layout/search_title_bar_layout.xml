@@ -76,7 +76,7 @@
                 android:textColor="@color/common_list_title_color"
                 android:textColorHint="#ADB4BE"
                 android:textCursorDrawable="@drawable/edit_cursor_color"
-                android:textSize="14dp"/>
+                android:textSize="14dp" />
         </RelativeLayout>
     </RelativeLayout>
 </com.lightsky.video.search.SearchTitleBar>

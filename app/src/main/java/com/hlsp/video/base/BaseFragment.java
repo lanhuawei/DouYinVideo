@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.baidu.mobstat.StatService;
+import com.hlsp.video.utils.ToastUtil;
 
 import butterknife.Unbinder;
 
@@ -35,6 +36,7 @@ public abstract class BaseFragment<PRESENTER extends BasePresenter> extends Frag
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = (BaseActivity) getActivity();
+        ToastUtil.showToast("" + getClass().getSimpleName());
     }
 
     @Nullable
