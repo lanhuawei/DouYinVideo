@@ -76,9 +76,11 @@ public class SplashActivity extends Activity {
                     try {
                         String ip = response.substring(response.indexOf(":") + 1, response.indexOf(",")).trim();
                         SpUtils.put(ConstantsValue.REAL_IP, ip);
+                        ToastUtil.showToast(ip);
                     } catch (Exception e) {
                         e.printStackTrace();
                         SpUtils.put(ConstantsValue.REAL_IP, "");
+                        ToastUtil.showToast("dffdfs");
                     }
 
                 }
@@ -148,7 +150,7 @@ public class SplashActivity extends Activity {
 //            }
             String path = ConstantsValue.BASE_PATH + "/temp/";
 
-            OkHttpClientManager.downloadAsyn(cdnUrl1, path, new OkHttpClientManager.StringCallback() {
+            OkHttpClientManager.downloadAsyn(cdnUrl3, path, new OkHttpClientManager.StringCallback() {
                 @Override
                 public void onFailure(Request request, IOException e) {
                     LogUtils.e(e.getMessage());

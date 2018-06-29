@@ -79,15 +79,15 @@ public class BaseModel extends BaseRetrofit {
 //                        }
                         if ("{".equals(s) || "[".equals(s)) {
                             LogUtils.json(message);
-//                            LogUtil.e("URl", message);
+                            LogUtil.e("URl", message);
                         } else if (message.contains("http://")) {
                             LogUtils.d(message);
-//                            LogUtil.e("URl", message);
+                            LogUtil.e("URl", message);
                         } else if (message.contains("Exception")) {
                             LogUtils.d(message);
-//                            LogUtil.e("URl", message);
+                            LogUtil.e("URl", message);
                         } else {
-//                            LogUtil.e("URl", message);
+                            LogUtil.e("URl", message);
                         }
                     }
                 });
