@@ -60,33 +60,34 @@ public class SplashActivity extends Activity {
         thread = new MyThread();
         handler.postDelayed(thread, 1200);
 
-        /**
-         * 获取外网Ip
-         */
-        if (Utils.isNetworkAvailable(App.getInstance())) {
-            Map<String, String> map = new HashMap<>();
-            OkHttpClientManager.postAsyn("http://pv.sohu.com/cityjson?ie=utf-8", new OkHttpClientManager.StringCallback() {
-                @Override
-                public void onFailure(Request request, IOException e) {
-                    ToastUtil.showToast("网络连接失败");
-                }
+//        /**
+//         * 获取外网Ip
+//         */
+//        if (Utils.isNetworkAvailable(App.getInstance())) {
+//            Map<String, String> map = new HashMap<>();
+//            OkHttpClientManager.postAsyn("http://pv.sohu.com/cityjson?ie=utf-8", new OkHttpClientManager.StringCallback() {
+//                @Override
+//                public void onFailure(Request request, IOException e) {
+//                    ToastUtil.showToast("网络连接失败");
+//                }
+//
+//                @Override
+//                public void onResponse(String response) {
+//                    try {
+//                        String ip = response.substring(response.indexOf(":") + 1, response.indexOf(",")).trim();
+//                        SpUtils.put(ConstantsValue.REAL_IP, ip);
+//                        ToastUtil.showToast(ip);
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                        SpUtils.put(ConstantsValue.REAL_IP, "");
+//                        ToastUtil.showToast("dffdfs");
+//                    }
+//
+//                }
+//            }, map, "");
+//
+//        }
 
-                @Override
-                public void onResponse(String response) {
-                    try {
-                        String ip = response.substring(response.indexOf(":") + 1, response.indexOf(",")).trim();
-                        SpUtils.put(ConstantsValue.REAL_IP, ip);
-                        ToastUtil.showToast(ip);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        SpUtils.put(ConstantsValue.REAL_IP, "");
-                        ToastUtil.showToast("dffdfs");
-                    }
-
-                }
-            }, map, "");
-
-        }
 
 
 //        PlatformSDK.adapp().dycmSplashAd(SplashActivity.this, "10-1", ad_view, new AbstractCallback() {
@@ -148,33 +149,35 @@ public class SplashActivity extends Activity {
 //                startActivity(new Intent(SplashActivity.this, MainTabActivity.class));
 //                finish();
 //            }
-            String path = ConstantsValue.BASE_PATH + "/temp/";
-
-            OkHttpClientManager.downloadAsyn(cdnUrl3, path, new OkHttpClientManager.StringCallback() {
-                @Override
-                public void onFailure(Request request, IOException e) {
-                    LogUtils.e(e.getMessage());
-
-                }
-
-                @Override
-                public void onResponse(String path) {
-                    LogUtils.e(path);
-                    String cndStr = FileUtils.readFile(path);
-
-                    if (!TextUtils.isEmpty(cndStr)) {
-                        CdnResponse response = GsonUtil.GsonToBean(cndStr, CdnResponse.class);
-                        LogUtils.e(response);
-                        if (!HttpBaseUrl.BASE_URL.equals(response.getBase_url())) {
-                            HttpBaseUrl.BASE_URL = response.getBase_url();
-                            HttpServletAddress.getInstance().setOnlineAddress(HttpBaseUrl.BASE_URL);
-                        }
-
-                    }
 
 
-                }
-            });
+//            String path = ConstantsValue.BASE_PATH + "/temp/";
+//
+//            OkHttpClientManager.downloadAsyn(cdnUrl3, path, new OkHttpClientManager.StringCallback() {
+//                @Override
+//                public void onFailure(Request request, IOException e) {
+//                    LogUtils.e(e.getMessage());
+//
+//                }
+//
+//                @Override
+//                public void onResponse(String path) {
+//                    LogUtils.e(path);
+//                    String cndStr = FileUtils.readFile(path);
+//
+//                    if (!TextUtils.isEmpty(cndStr)) {
+//                        CdnResponse response = GsonUtil.GsonToBean(cndStr, CdnResponse.class);
+//                        LogUtils.e(response);
+//                        if (!HttpBaseUrl.BASE_URL.equals(response.getBase_url())) {
+//                            HttpBaseUrl.BASE_URL = response.getBase_url();
+//                            HttpServletAddress.getInstance().setOnlineAddress(HttpBaseUrl.BASE_URL);
+//                        }
+//
+//                    }
+//
+//
+//                }
+//            });
 
             startActivity(new Intent(SplashActivity.this, MainTabActivity.class));
             finish();

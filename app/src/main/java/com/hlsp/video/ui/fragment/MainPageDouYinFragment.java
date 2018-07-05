@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -198,10 +199,12 @@ public class MainPageDouYinFragment extends BaseFragment implements CygBaseRecyc
      */
     public void getDouyinListData() {
         String url = DouyinUtils.getEncryptUrl(getActivity(), 0, max_cursor);
+//        Log.e("MAIN", url + "");
         OkHttpClientManager.getAsyn(url, new OkHttpClientManager.StringCallback() {
             @Override
             public void onResponse(String response) {
                 LogUtils.json(response);
+//                Log.e("MAINDOu", response + "  ");
                 loadFrameLayout.showContentView();
                 try {
                     DouyinVideoListData listData = DouyinVideoListData.fromJSONData(response);
@@ -271,6 +274,7 @@ public class MainPageDouYinFragment extends BaseFragment implements CygBaseRecyc
 
     public void HuoshanListData() {
         String url = HotsoonUtils.getEncryptUrl(getActivity(), 0, max_cursor);
+//        Log.e("MAINHUO", url + "");
         OkHttpClientManager.getAsyn(url, new OkHttpClientManager.StringCallback() {
             @Override
             public void onResponse(String response) {

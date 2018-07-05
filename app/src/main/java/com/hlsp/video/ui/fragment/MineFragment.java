@@ -58,6 +58,8 @@ public class MineFragment extends BaseFragment implements CygBaseRecyclerAdapter
     @BindView(R.id.tv_username) TextView mTvUser;
     @BindView(R.id.ll_clear_cache) View mClearCache;
 
+
+
     private int userNum;
 
     private List<VideoListItem> mList = new ArrayList<>();
