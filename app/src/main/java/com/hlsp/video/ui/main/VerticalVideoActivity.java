@@ -25,6 +25,7 @@ import com.hlsp.video.okhttp.http.OkHttpClientManager;
 import com.hlsp.video.ui.main.adapter.DouYinAdapter;
 import com.hlsp.video.utils.DouyinUtils;
 import com.hlsp.video.utils.GlideUtils;
+import com.hlsp.video.utils.StatusBarCompat;
 import com.hlsp.video.utils.ToastUtil;
 import com.hlsp.video.utils.Utils;
 import com.hlsp.video.utils.WeakDataHolder;
@@ -111,6 +112,7 @@ public class VerticalVideoActivity extends BaseActivity {
         mDouYinController = new DouYinController(this);
         mIjkVideoView.setVideoController(mDouYinController);
 
+//        StatusBarCompat.translucentStatusBar(this, true);
 
         getImageData();
 
