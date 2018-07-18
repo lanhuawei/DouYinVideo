@@ -99,55 +99,98 @@ public class RecommondVideoFragment extends BaseFragment {
 
 
     private void getChannelData() {
-        MainModel.getInstance().executeChannelList(new CygBaseObserver<ChannelListData>(context, "加载中,请稍后....") {
-            @Override
-            protected void onBaseError(Throwable t) {
-                super.onBaseError(t);
-                mHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        loadFrameLayout.showErrorView();
-                    }
-                });
-            }
+//        MainModel.getInstance().executeChannelList(new CygBaseObserver<ChannelListData>(context, "加载中,请稍后....") {
+//            @Override
+//            protected void onBaseError(Throwable t) {
+//                super.onBaseError(t);
+//                mHandler.post(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        loadFrameLayout.showErrorView();
+//                    }
+//                });
+//            }
+//
+//            @Override
+//            protected void onBaseNext(ChannelListData data) {
+//                loadFrameLayout.showContentView();
+//
+//                channelList = data.getChannelList();
+//
+////                ChannelListItem channelListItem = new ChannelListItem();
+////                channelListItem.setName("推荐");
+////                channelListItem.setId(10);
+////                for (int i = 0; i < 3; i++) {
+////                    channelList.add(channelListItem);
+////                }
+//
+//                for (ChannelListItem item : channelList) {
+//                    mTabs.put(item.getName(), item.getId());
+//                }
+//
+//                LogUtils.e(mTabs);
+//
+//                mViewPager.setAdapter(new ItemPageAdapter(getChildFragmentManager()));
+//                mViewPager.setOffscreenPageLimit(3);
+//                mTabLayout.setViewPager(mViewPager); //初始化的绑定
+//
+//                mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+//
+//                    @Override
+//                    public void onPageSelected(int position) {
+//                        VideoViewManager.instance().releaseVideoPlayer();
+//
+//                        if (position == 0) {
+//                            StatService.onEvent(getActivity(), "recommond", "推荐");
+//                        } else if (position == 1) {
+//                            StatService.onEvent(getActivity(), "social", "搞笑");
+//                        } else {
+//                            StatService.onEvent(getActivity(), "entertainment", "娱乐");
+//                        }
+//
+//                    }
+//
+//                });
+//
+//            }
+//
+//        });
+
+        loadFrameLayout.showContentView();
+        for (int i = 0; i < 2; i++) {
+            ChannelListItem channelListItem = new ChannelListItem();
+            channelListItem.setName("推荐");
+            channelListItem.setId(i);
+            channelList.add(channelListItem);
+        }
+
+        for (ChannelListItem item : channelList) {
+            mTabs.put(item.getName(), item.getId());
+        }
+
+        LogUtils.e(mTabs);
+        mViewPager.setAdapter(new ItemPageAdapter(getChildFragmentManager()));
+        mViewPager.setOffscreenPageLimit(3);
+        mTabLayout.setViewPager(mViewPager); //初始化的绑定
+
+        mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
 
             @Override
-            protected void onBaseNext(ChannelListData data) {
-                loadFrameLayout.showContentView();
+            public void onPageSelected(int position) {
+                VideoViewManager.instance().releaseVideoPlayer();
 
-                channelList = data.getChannelList();
-
-                for (ChannelListItem item : channelList) {
-                    mTabs.put(item.getName(), item.getId());
+                if (position == 0) {
+                    StatService.onEvent(getActivity(), "recommond", "推荐");
+                } else if (position == 1) {
+                    StatService.onEvent(getActivity(), "social", "搞笑");
+                } else {
+                    StatService.onEvent(getActivity(), "entertainment", "娱乐");
                 }
-
-                LogUtils.e(mTabs);
-
-                mViewPager.setAdapter(new ItemPageAdapter(getChildFragmentManager()));
-                mViewPager.setOffscreenPageLimit(3);
-                mTabLayout.setViewPager(mViewPager); //初始化的绑定
-
-                mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
-
-                    @Override
-                    public void onPageSelected(int position) {
-                        VideoViewManager.instance().releaseVideoPlayer();
-
-                        if (position == 0) {
-                            StatService.onEvent(getActivity(), "recommond", "推荐");
-                        } else if (position == 1) {
-                            StatService.onEvent(getActivity(), "social", "搞笑");
-                        } else {
-                            StatService.onEvent(getActivity(), "entertainment", "娱乐");
-                        }
-
-                    }
-
-                });
 
             }
 
         });
+
     }
 
 
@@ -173,7 +216,7 @@ public class RecommondVideoFragment extends BaseFragment {
             Bundle args = new Bundle();
             args.putInt("position", position);
             args.putString("title", titles[position]);
-            args.putInt("id", mTabs.get(titles[position]));
+//            args.putInt("id", mTabs.get(titles[position]));
             mFragments.put(position, RecommondChildFragment.newInstance(args));
 
             return mFragments.get(position);

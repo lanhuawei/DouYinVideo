@@ -8,6 +8,7 @@ import com.hlsp.video.base.BaseFragment;
 
 /**
  * Created by hackest on 2018-02-01.
+ *
  */
 
 public class FollowingFragment extends BaseFragment {

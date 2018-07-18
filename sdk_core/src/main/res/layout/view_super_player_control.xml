@@ -38,24 +38,33 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="70dp"
         android:layout_marginLeft="7dp">
-
-        <ImageView
-            android:id="@+id/change_play_rate"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/change_play_rate_normal" />
+            android:id="@+id/rl_fast">
 
-        <ImageView
-            android:id="@+id/change_play_rate_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/change_play_rate_icon" />
+            <ImageView
+                android:id="@+id/change_play_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/change_play_rate_normal" />
+
+            <ImageView
+                android:id="@+id/change_play_rate_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/change_play_rate_icon"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+
 
         <TextView
             android:id="@+id/change_play_rate_tip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/change_play_rate"
+            android:layout_below="@id/rl_fast"
             android:layout_marginTop="2dp"
             android:layout_centerHorizontal="true"
             android:text="@string/change_play_rate"

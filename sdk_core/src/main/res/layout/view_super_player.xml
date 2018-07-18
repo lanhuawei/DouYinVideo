@@ -9,7 +9,7 @@
         android:id="@+id/video_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true" />[
+        android:layout_centerInParent="true" />
 
    <!-- <FrameLayout
         android:id="@+id/video_danmu_root"

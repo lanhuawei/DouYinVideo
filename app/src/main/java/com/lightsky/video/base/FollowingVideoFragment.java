@@ -154,6 +154,25 @@ public class FollowingVideoFragment extends BaseFragment implements CategoryQuer
      * 影视 -> 8
      * 社会 -> 3
      * 推荐 -> 0
+     * 萌宠 -> 111
+     *
+     * 健康 -> 110
+     * 美食 -> 113
+     * 时尚 -> 112
+     * 音乐 -> 13
+     * 搞笑 -> 2
+     * 影视 -> 8
+     * 推荐 -> 0
+     * 娱乐 -> 1
+     * 生活 -> 18
+     * 汽车 -> 23
+     * 游戏 -> 11
+     * 体育 -> 12
+     * 科技 -> 7
+     * 军事 -> 19
+     * 社会 -> 3
+     * 广场舞 -> 127
+     *
      */
     @Override
     public void onCategoryQueryFinish(boolean bSuccess, List<CategoryInfoBase> infos) {
@@ -166,12 +185,12 @@ public class FollowingVideoFragment extends BaseFragment implements CategoryQuer
             mTabs.put(item.name, item.mId);
             mTabinfos.add(item);
         }
-
+        LogUtils.e(mTabs);
         if (isInit) {
             return;
         }
 
-        tabfilter.add(mTabs.get("音乐"));
+        tabfilter.add(mTabs.get("推荐"));
         tabfilter.add(mTabs.get("社会"));
         tabfilter.add(mTabs.get("影视"));
         tabfilter.add(mTabs.get("生活"));
@@ -198,9 +217,9 @@ public class FollowingVideoFragment extends BaseFragment implements CategoryQuer
                 @Override
                 public void run() {
                     mPagerSlidingTab = mVideoFragment.mRoot.findViewById(R.id.tabs);
-                    mPagerSlidingTab.setSelectedTextColor(Color.parseColor("#212832"));
+//                    mPagerSlidingTab.setSelectedTextColor(Color.parseColor("#212832"));
+                    mPagerSlidingTab.setSelectedTextColor(Color.parseColor("#4A8CD2"));
                     mPagerSlidingTab.setTextColor(Color.parseColor("#5D646E"));
-
                     onStatistics();
 
                 }
