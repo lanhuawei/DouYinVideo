@@ -1,11 +1,14 @@
 package com.hlsp.video.base;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.baidu.mobstat.StatService;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.hlsp.video.utils.StatusBarCompat;
 import com.hlsp.video.utils.ToastUtil;
 
@@ -33,6 +36,13 @@ public abstract class BaseActivity<PRESENTER extends BasePresenter> extends AppC
         if (null == mPresenter) {
             mPresenter = createPresenter();
         }
+//        ImagePipelineConfig config = ImagePipelineConfig.newBuilder(getApplicationContext())
+//                .setDownsampleEnabled(true)   // 对图片进行自动缩放
+//                .setResizeAndRotateEnabledForNetwork(true)    // 对图片进行自动缩放
+//                .setBitmapsConfig(Bitmap.Config.RGB_565) //  //图片设置RGB_565，减小内存开销  fresco默认情况下是RGB_8888
+//                //other settings
+//                .build();
+//        Fresco.initialize(this, config);
 
         setContentView(layoutRes());
         StatusBarCompat.translucentStatusBar(this, true);

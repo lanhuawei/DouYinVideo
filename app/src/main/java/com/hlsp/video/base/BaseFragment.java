@@ -1,5 +1,6 @@
 package com.hlsp.video.base;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.baidu.mobstat.StatService;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.hlsp.video.utils.ToastUtil;
 
 import butterknife.Unbinder;
@@ -36,7 +39,8 @@ public abstract class BaseFragment<PRESENTER extends BasePresenter> extends Frag
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = (BaseActivity) getActivity();
-        ToastUtil.showToast("" + getClass().getSimpleName());
+//        ToastUtil.showToast("" + getClass().getSimpleName());
+
     }
 
     @Nullable

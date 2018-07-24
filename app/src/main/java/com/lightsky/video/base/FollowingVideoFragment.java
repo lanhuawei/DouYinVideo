@@ -1,5 +1,6 @@
 package com.lightsky.video.base;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,6 +14,8 @@ import android.widget.ImageView;
 
 import com.apkfuns.logutils.LogUtils;
 import com.baidu.mobstat.StatService;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.hlsp.video.R;
 import com.hlsp.video.base.BaseFragment;
 import com.hlsp.video.bean.EventEntity;

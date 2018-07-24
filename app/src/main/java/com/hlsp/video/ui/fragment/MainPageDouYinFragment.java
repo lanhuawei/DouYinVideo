@@ -1,6 +1,7 @@
 package com.hlsp.video.ui.fragment;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.apkfuns.logutils.LogUtils;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.hlsp.video.App;
 import com.hlsp.video.R;
 import com.hlsp.video.base.BaseFragment;
@@ -87,6 +90,14 @@ public class MainPageDouYinFragment extends BaseFragment implements CygBaseRecyc
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EventBus.getDefault().register(this);
+
+//        ImagePipelineConfig config = ImagePipelineConfig.newBuilder(getActivity().getApplicationContext())
+//                .setDownsampleEnabled(true)   // 对图片进行自动缩放
+//                .setResizeAndRotateEnabledForNetwork(true)    // 对图片进行自动缩放
+//                .setBitmapsConfig(Bitmap.Config.RGB_565) //  //图片设置RGB_565，减小内存开销  fresco默认情况下是RGB_8888
+//                //other settings
+//                .build();
+//        Fresco.initialize(getActivity(), config);
     }
 
     @Override
