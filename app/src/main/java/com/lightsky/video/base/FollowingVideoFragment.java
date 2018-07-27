@@ -20,6 +20,7 @@ import com.hlsp.video.R;
 import com.hlsp.video.base.BaseFragment;
 import com.hlsp.video.bean.EventEntity;
 import com.hlsp.video.utils.NetworkUtil;
+import com.hlsp.video.utils.statusbar.StatusBarFontHelper;
 import com.lightsky.video.VideoHelper;
 import com.lightsky.video.datamanager.category.CategoryQueryNotify;
 import com.lightsky.video.sdk.CategoryInfoBase;
@@ -87,7 +88,8 @@ public class FollowingVideoFragment extends BaseFragment implements CategoryQuer
     protected void onViewReallyCreated(View view) {
         mUnbinder = ButterKnife.bind(this, view);
         StatService.onEvent(getActivity(), "music", "音乐");
-
+//        int result = StatusBarFontHelper.setStatusBarMode(getActivity(), true);
+//        StatusBarFontHelper.setLightMode(getActivity(), result);
     }
 
     private void generateEvent() {
@@ -133,9 +135,7 @@ public class FollowingVideoFragment extends BaseFragment implements CategoryQuer
         setting.UseLogCatLog = false;
         setting.UseShareLayout = false;
         VideoOption option = new VideoOption();
-
         InitVideoHelper(setting, option);
-
     }
 
 
@@ -271,7 +271,6 @@ public class FollowingVideoFragment extends BaseFragment implements CategoryQuer
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-
         VideoHelper.get().unInit();
         isInit = false;
     }
@@ -282,18 +281,15 @@ public class FollowingVideoFragment extends BaseFragment implements CategoryQuer
         if (hidden) {
             if (mVideoFragment != null && mVideoFragment.mViewPager != null) {
                 currentPos = mVideoFragment.mViewPager.getCurrentItem();
-
                 if (currentPos == 0) {
                     mVideoFragment.mViewPager.setCurrentItem(1);
                 } else {
                     mVideoFragment.mViewPager.setCurrentItem(0);
                 }
             }
-
         } else {
             if (mVideoFragment != null && mVideoFragment.mViewPager != null) {
                 mVideoFragment.mViewPager.setCurrentItem(currentPos, false);
-
             }
         }
     }

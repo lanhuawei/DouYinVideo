@@ -363,6 +363,7 @@ public class MainPageDouYinFragment extends BaseFragment implements CygBaseRecyc
         if (!hidden) {
             StatusBarCompat.translucentStatusBar(getActivity(), true);
         } else {
+//            使得其他fragment有距离状态栏的高度
             StatusBarCompat.setStatusBarColor(getActivity(), 0xfffffff);
             StatusBarFontHelper.setStatusBarMode(getActivity(), true);
         }

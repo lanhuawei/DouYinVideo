@@ -38,8 +38,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_main_tab_height"
                 android:orientation="horizontal"/>
-
-
         </LinearLayout>
 
     </TabHost>

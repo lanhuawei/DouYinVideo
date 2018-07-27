@@ -25,6 +25,7 @@ import com.hlsp.video.bean.ChannelListItem;
 import com.hlsp.video.bean.data.ChannelListData;
 import com.hlsp.video.model.main.MainModel;
 import com.hlsp.video.utils.NoDoubleClickUtils;
+import com.hlsp.video.utils.statusbar.StatusBarFontHelper;
 import com.hlsp.video.view.LoadFrameLayout;
 import com.hlsp.video.widget.tablayout.SlidingTabLayout;
 
@@ -89,6 +90,8 @@ public class RecommondVideoFragment extends BaseFragment {
                 }
             }
         });
+        int result = StatusBarFontHelper.setStatusBarMode(getActivity(), true);
+        StatusBarFontHelper.setLightMode(getActivity(), result);
 
         getChannelData();
 
