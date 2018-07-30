@@ -24,4 +24,8 @@ public class RecommondAdapter extends CygBaseRecyclerAdapter<VideoListItem, Reco
     }
 
 
+
+
+
+
 }
